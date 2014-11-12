@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		493758D71A139DDC00DEBC5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758D61A139DDC00DEBC5C /* AppDelegate.swift */; };
+		493758DA1A139DDC00DEBC5C /* Gas_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 493758D81A139DDC00DEBC5C /* Gas_Calculator.xcdatamodeld */; };
+		493758DC1A139DDC00DEBC5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758DB1A139DDC00DEBC5C /* ViewController.swift */; };
+		493758DF1A139DDC00DEBC5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493758DD1A139DDC00DEBC5C /* Main.storyboard */; };
+		493758E11A139DDC00DEBC5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493758E01A139DDC00DEBC5C /* Images.xcassets */; };
+		493758E41A139DDC00DEBC5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493758E21A139DDC00DEBC5C /* LaunchScreen.xib */; };
+		493758F01A139DDC00DEBC5C /* Gas_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758EF1A139DDC00DEBC5C /* Gas_CalculatorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		493758EA1A139DDC00DEBC5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 493758C91A139DDB00DEBC5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 493758D01A139DDB00DEBC5C;
+			remoteInfo = "Gas Calculator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		493758D11A139DDC00DEBC5C /* Gas Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gas Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		493758D51A139DDC00DEBC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493758D61A139DDC00DEBC5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		493758D91A139DDC00DEBC5C /* Gas_Calculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gas_Calculator.xcdatamodel; sourceTree = "<group>"; };
+		493758DB1A139DDC00DEBC5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		493758DE1A139DDC00DEBC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		493758E01A139DDC00DEBC5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		493758E31A139DDC00DEBC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		493758E91A139DDC00DEBC5C /* Gas CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gas CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		493758EE1A139DDC00DEBC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493758EF1A139DDC00DEBC5C /* Gas_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas_CalculatorTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		493758CE1A139DDB00DEBC5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		493758E61A139DDC00DEBC5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		493758C81A139DDB00DEBC5C = {
+			isa = PBXGroup;
+			children = (
+				493758D31A139DDC00DEBC5C /* Gas Calculator */,
+				493758EC1A139DDC00DEBC5C /* Gas CalculatorTests */,
+				493758D21A139DDC00DEBC5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		493758D21A139DDC00DEBC5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				493758D11A139DDC00DEBC5C /* Gas Calculator.app */,
+				493758E91A139DDC00DEBC5C /* Gas CalculatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		493758D31A139DDC00DEBC5C /* Gas Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				493758D61A139DDC00DEBC5C /* AppDelegate.swift */,
+				493758DB1A139DDC00DEBC5C /* ViewController.swift */,
+				493758DD1A139DDC00DEBC5C /* Main.storyboard */,
+				493758E01A139DDC00DEBC5C /* Images.xcassets */,
+				493758E21A139DDC00DEBC5C /* LaunchScreen.xib */,
+				493758D81A139DDC00DEBC5C /* Gas_Calculator.xcdatamodeld */,
+				493758D41A139DDC00DEBC5C /* Supporting Files */,
+			);
+			path = "Gas Calculator";
+			sourceTree = "<group>";
+		};
+		493758D41A139DDC00DEBC5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				493758D51A139DDC00DEBC5C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		493758EC1A139DDC00DEBC5C /* Gas CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				493758EF1A139DDC00DEBC5C /* Gas_CalculatorTests.swift */,
+				493758ED1A139DDC00DEBC5C /* Supporting Files */,
+			);
+			path = "Gas CalculatorTests";
+			sourceTree = "<group>";
+		};
+		493758ED1A139DDC00DEBC5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				493758EE1A139DDC00DEBC5C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		493758D01A139DDB00DEBC5C /* Gas Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 493758F31A139DDC00DEBC5C /* Build configuration list for PBXNativeTarget "Gas Calculator" */;
+			buildPhases = (
+				493758CD1A139DDB00DEBC5C /* Sources */,
+				493758CE1A139DDB00DEBC5C /* Frameworks */,
+				493758CF1A139DDB00DEBC5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Gas Calculator";
+			productName = "Gas Calculator";
+			productReference = 493758D11A139DDC00DEBC5C /* Gas Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		493758E81A139DDC00DEBC5C /* Gas CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 493758F61A139DDC00DEBC5C /* Build configuration list for PBXNativeTarget "Gas CalculatorTests" */;
+			buildPhases = (
+				493758E51A139DDC00DEBC5C /* Sources */,
+				493758E61A139DDC00DEBC5C /* Frameworks */,
+				493758E71A139DDC00DEBC5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				493758EB1A139DDC00DEBC5C /* PBXTargetDependency */,
+			);
+			name = "Gas CalculatorTests";
+			productName = "Gas CalculatorTests";
+			productReference = 493758E91A139DDC00DEBC5C /* Gas CalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		493758C91A139DDB00DEBC5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Miguel Angel Moreno Armenteros";
+				TargetAttributes = {
+					493758D01A139DDB00DEBC5C = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					493758E81A139DDC00DEBC5C = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 493758D01A139DDB00DEBC5C;
+					};
+				};
+			};
+			buildConfigurationList = 493758CC1A139DDB00DEBC5C /* Build configuration list for PBXProject "Gas Calculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 493758C81A139DDB00DEBC5C;
+			productRefGroup = 493758D21A139DDC00DEBC5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				493758D01A139DDB00DEBC5C /* Gas Calculator */,
+				493758E81A139DDC00DEBC5C /* Gas CalculatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		493758CF1A139DDB00DEBC5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				493758DF1A139DDC00DEBC5C /* Main.storyboard in Resources */,
+				493758E41A139DDC00DEBC5C /* LaunchScreen.xib in Resources */,
+				493758E11A139DDC00DEBC5C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		493758E71A139DDC00DEBC5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		493758CD1A139DDB00DEBC5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				493758DC1A139DDC00DEBC5C /* ViewController.swift in Sources */,
+				493758D71A139DDC00DEBC5C /* AppDelegate.swift in Sources */,
+				493758DA1A139DDC00DEBC5C /* Gas_Calculator.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		493758E51A139DDC00DEBC5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				493758F01A139DDC00DEBC5C /* Gas_CalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		493758EB1A139DDC00DEBC5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 493758D01A139DDB00DEBC5C /* Gas Calculator */;
+			targetProxy = 493758EA1A139DDC00DEBC5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		493758DD1A139DDC00DEBC5C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				493758DE1A139DDC00DEBC5C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		493758E21A139DDC00DEBC5C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				493758E31A139DDC00DEBC5C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		493758F11A139DDC00DEBC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		493758F21A139DDC00DEBC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		493758F41A139DDC00DEBC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Gas Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		493758F51A139DDC00DEBC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Gas Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		493758F71A139DDC00DEBC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Gas CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gas Calculator.app/Gas Calculator";
+			};
+			name = Debug;
+		};
+		493758F81A139DDC00DEBC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Gas CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gas Calculator.app/Gas Calculator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		493758CC1A139DDB00DEBC5C /* Build configuration list for PBXProject "Gas Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				493758F11A139DDC00DEBC5C /* Debug */,
+				493758F21A139DDC00DEBC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		493758F31A139DDC00DEBC5C /* Build configuration list for PBXNativeTarget "Gas Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				493758F41A139DDC00DEBC5C /* Debug */,
+				493758F51A139DDC00DEBC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		493758F61A139DDC00DEBC5C /* Build configuration list for PBXNativeTarget "Gas CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				493758F71A139DDC00DEBC5C /* Debug */,
+				493758F81A139DDC00DEBC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		493758D81A139DDC00DEBC5C /* Gas_Calculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				493758D91A139DDC00DEBC5C /* Gas_Calculator.xcdatamodel */,
+			);
+			currentVersion = 493758D91A139DDC00DEBC5C /* Gas_Calculator.xcdatamodel */;
+			path = Gas_Calculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 493758C91A139DDB00DEBC5C /* Project object */;
+}
