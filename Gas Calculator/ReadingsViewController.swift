@@ -25,6 +25,18 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let settingsSet: Bool? = defaults.objectForKey("settings_set") as Bool?
+
+        if settingsSet == nil {
+            var alertController = UIAlertController(title: "Atención", message: "No hay datos en la configuración", preferredStyle: UIAlertControllerStyle.Alert)
+            var OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
+                self.performSegueWithIdentifier("settingsSegue", sender: nil)
+            })
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

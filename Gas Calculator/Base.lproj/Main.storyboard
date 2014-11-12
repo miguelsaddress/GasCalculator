@@ -127,7 +127,7 @@
                                         <connections>
                                             <outlet property="consumeLabel" destination="zq2-nu-7VC" id="zMv-Za-JgJ"/>
                                             <outlet property="dateOfReadingLabel" destination="vD9-wh-5ZP" id="OcC-Jj-zqN"/>
-                                            <segue destination="VYr-1w-pPK" kind="show" id="9P7-G5-8qf"/>
+                                            <segue destination="VYr-1w-pPK" kind="show" identifier="updateReadingSegue" id="9P7-G5-8qf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -142,7 +142,7 @@
                     <navigationItem key="navigationItem" id="F4m-GF-WFi">
                         <barButtonItem key="leftBarButtonItem" title="Configuración" id="6pr-EL-GUp">
                             <connections>
-                                <segue destination="vad-oS-vdS" kind="show" id="xXW-FP-WUU"/>
+                                <segue destination="vad-oS-vdS" kind="show" identifier="settingsSegue" id="xXW-FP-WUU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UTl-yu-cMv">
