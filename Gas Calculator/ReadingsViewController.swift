@@ -21,6 +21,9 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var totalWithVATLabel: UILabel!
     
     
+    //variables
+    var readingsArray = [Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,7 +53,12 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if self.readingsArray.count == 0 {
+            //to display no readings yet cell
+            return 1
+        } else {
+            return self.readingsArray.count
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -58,8 +66,12 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = self.tableView.dequeueReusableCellWithIdentifier("readingsCell", forIndexPath: indexPath) as ReadingsCell
-        
+        var cell: UITableViewCell
+        if self.readingsArray.count == 0 {
+            cell = self.tableView.dequeueReusableCellWithIdentifier("noReadingsYet", forIndexPath: indexPath) as UITableViewCell
+        } else {
+            cell = self.tableView.dequeueReusableCellWithIdentifier("readingsCell", forIndexPath: indexPath) as ReadingsCell
+        }
         return cell
     }
     
