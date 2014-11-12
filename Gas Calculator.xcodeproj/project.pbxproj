@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490BDBF41A13A9130093E567 /* AddReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BDBF31A13A9130093E567 /* AddReadingViewController.swift */; };
+		490BDBF61A13A9240093E567 /* UpdateReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BDBF51A13A9240093E567 /* UpdateReadingViewController.swift */; };
 		493758D71A139DDC00DEBC5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758D61A139DDC00DEBC5C /* AppDelegate.swift */; };
 		493758DA1A139DDC00DEBC5C /* Gas_Calculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 493758D81A139DDC00DEBC5C /* Gas_Calculator.xcdatamodeld */; };
-		493758DC1A139DDC00DEBC5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758DB1A139DDC00DEBC5C /* ViewController.swift */; };
 		493758DF1A139DDC00DEBC5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493758DD1A139DDC00DEBC5C /* Main.storyboard */; };
 		493758E11A139DDC00DEBC5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493758E01A139DDC00DEBC5C /* Images.xcassets */; };
 		493758E41A139DDC00DEBC5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493758E21A139DDC00DEBC5C /* LaunchScreen.xib */; };
 		493758F01A139DDC00DEBC5C /* Gas_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758EF1A139DDC00DEBC5C /* Gas_CalculatorTests.swift */; };
+		493758FA1A139E1300DEBC5C /* ReadingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758F91A139E1300DEBC5C /* ReadingsViewController.swift */; };
+		493758FC1A13A27000DEBC5C /* ReadingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758FB1A13A27000DEBC5C /* ReadingsCell.swift */; };
+		493758FE1A13A48000DEBC5C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493758FD1A13A48000DEBC5C /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +31,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		490BDBF31A13A9130093E567 /* AddReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReadingViewController.swift; sourceTree = "<group>"; };
+		490BDBF51A13A9240093E567 /* UpdateReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateReadingViewController.swift; sourceTree = "<group>"; };
 		493758D11A139DDC00DEBC5C /* Gas Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gas Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		493758D51A139DDC00DEBC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493758D61A139DDC00DEBC5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		493758D91A139DDC00DEBC5C /* Gas_Calculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gas_Calculator.xcdatamodel; sourceTree = "<group>"; };
-		493758DB1A139DDC00DEBC5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		493758DE1A139DDC00DEBC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		493758E01A139DDC00DEBC5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		493758E31A139DDC00DEBC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		493758E91A139DDC00DEBC5C /* Gas CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gas CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		493758EE1A139DDC00DEBC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493758EF1A139DDC00DEBC5C /* Gas_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gas_CalculatorTests.swift; sourceTree = "<group>"; };
+		493758F91A139E1300DEBC5C /* ReadingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsViewController.swift; sourceTree = "<group>"; };
+		493758FB1A13A27000DEBC5C /* ReadingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingsCell.swift; sourceTree = "<group>"; };
+		493758FD1A13A48000DEBC5C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +87,12 @@
 		493758D31A139DDC00DEBC5C /* Gas Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				490BDBF31A13A9130093E567 /* AddReadingViewController.swift */,
+				490BDBF51A13A9240093E567 /* UpdateReadingViewController.swift */,
+				493758F91A139E1300DEBC5C /* ReadingsViewController.swift */,
+				493758FB1A13A27000DEBC5C /* ReadingsCell.swift */,
+				493758FD1A13A48000DEBC5C /* SettingsViewController.swift */,
 				493758D61A139DDC00DEBC5C /* AppDelegate.swift */,
-				493758DB1A139DDC00DEBC5C /* ViewController.swift */,
 				493758DD1A139DDC00DEBC5C /* Main.storyboard */,
 				493758E01A139DDC00DEBC5C /* Images.xcassets */,
 				493758E21A139DDC00DEBC5C /* LaunchScreen.xib */,
@@ -215,9 +227,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493758DC1A139DDC00DEBC5C /* ViewController.swift in Sources */,
+				490BDBF41A13A9130093E567 /* AddReadingViewController.swift in Sources */,
 				493758D71A139DDC00DEBC5C /* AppDelegate.swift in Sources */,
 				493758DA1A139DDC00DEBC5C /* Gas_Calculator.xcdatamodeld in Sources */,
+				490BDBF61A13A9240093E567 /* UpdateReadingViewController.swift in Sources */,
+				493758FC1A13A27000DEBC5C /* ReadingsCell.swift in Sources */,
+				493758FE1A13A48000DEBC5C /* SettingsViewController.swift in Sources */,
+				493758FA1A139E1300DEBC5C /* ReadingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +427,7 @@
 				493758F51A139DDC00DEBC5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		493758F61A139DDC00DEBC5C /* Build configuration list for PBXNativeTarget "Gas CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +436,7 @@
 				493758F81A139DDC00DEBC5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
