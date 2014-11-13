@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ReadingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ReadingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,15 +23,78 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     //variables
-    var readingsArray = [AnyObject]()
+    var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.checkSettings()
+        self.fetchedResultsController = self.getFetchedResultsController()
+        self.fetchedResultsController.delegate = self
+        self.fetchedResultsController.performFetch(nil)
+        
+        println(self.fetchedResultsController.fetchedObjects?.count)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //UITableViewDataSource
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.fetchedResultsController.sections!.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.fetchedResultsController.sections![section].numberOfObjects
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        if self.fetchedResultsController.sections![indexPath.section].numberOfObjects == 0 {
+            var cell = self.tableView.dequeueReusableCellWithIdentifier("noReadingsYet", forIndexPath: indexPath) as UITableViewCell
+            return cell
+        } else {
+            var cell = self.tableView.dequeueReusableCellWithIdentifier("readingsCell", forIndexPath: indexPath) as ReadingsCell
+            var theItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as ReadingItem
+            cell.dateOfReadingLabel.text = Date.toString(theItem.date)
+            cell.consumeLabel.text = "\(theItem.reading)"
+            return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+
+            let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as ReadingItem
+            println("Deleting item: \(item) - [\(indexPath)]")
+
+            let delegate: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+            let context: NSManagedObjectContext = delegate.managedObjectContext!
+            context.deleteObject(item)
+            delegate.saveContext()
+        }
+    }
+    
+    //NSFetchedResultsController delegate
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.reloadData()
+    }
+
+    
+    
+    //Helpers
+    
+    func checkSettings() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let settingsSet: Bool? = defaults.objectForKey("settings_set") as Bool?
-
+        
         if settingsSet == nil {
             var alertController = UIAlertController(title: "Atención", message: "No hay datos en la configuración", preferredStyle: UIAlertControllerStyle.Alert)
             var OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
@@ -42,53 +105,24 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        //fill up array of readings
+    func getSortedByDateDescendingFetchRequest() -> NSFetchRequest {
         let request: NSFetchRequest = NSFetchRequest(entityName: "ReadingItem")
         let sortByDate: NSSortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sortByDate]
-        let context:NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
-
-        self.readingsArray = context.executeFetchRequest(request, error: nil)!
-        self.tableView.reloadData()
+        return request
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    //UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    func getFetchedResultsController() -> NSFetchedResultsController {
+        let context:NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        let fetchResultsController = NSFetchedResultsController(
+            fetchRequest: self.getSortedByDateDescendingFetchRequest(),
+            managedObjectContext: context!,
+            sectionNameKeyPath: "provided",
+            cacheName: nil
+        )
+        return fetchResultsController
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.readingsArray.count == 0 {
-            //to display no readings yet cell
-            return 1
-        } else {
-            return self.readingsArray.count
-        }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        if self.readingsArray.count == 0 {
-            var cell = self.tableView.dequeueReusableCellWithIdentifier("noReadingsYet", forIndexPath: indexPath) as UITableViewCell
-            return cell
-        } else {
-            var theCell = self.tableView.dequeueReusableCellWithIdentifier("readingsCell", forIndexPath: indexPath) as ReadingsCell
-            var theItem = self.readingsArray[indexPath.row] as ReadingItem
-            theCell.dateOfReadingLabel.text = Date.toString(theItem.date)
-            theCell.consumeLabel.text = "\(theItem.reading)"
-            return theCell
-        }
-    }
     
 }
