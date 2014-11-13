@@ -33,13 +33,18 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.fetchedResultsController = self.getFetchedResultsController()
         self.fetchedResultsController.delegate = self
         self.fetchedResultsController.performFetch(nil)
-        
-        println(self.fetchedResultsController.fetchedObjects?.count)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if let indexPath = self.tableView.indexPathForSelectedRow() {
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -74,6 +79,12 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
             var theItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as ReadingItem
             cell.dateOfReadingLabel.text = Date.toString(theItem.date)
             cell.consumeLabel.text = "\(theItem.reading)"
+
+            if theItem.provided as Bool {
+                cell.backgroundColor = UIColor(red: 0.85, green: 0.92, blue: 0.83, alpha: 1.0)
+            } else {
+                cell.backgroundColor = UIColor.clearColor()
+            }
             return cell
         }
     }
