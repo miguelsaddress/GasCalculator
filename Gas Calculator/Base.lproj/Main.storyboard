@@ -236,7 +236,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="providedReadingSwitch" destination="cIs-hW-JNp" id="rxj-vD-stk"/>
+                        <outlet property="providedReadingSwitch" destination="H8s-BD-tqU" id="m6X-oe-Cyi"/>
                         <outlet property="readingDatePicker" destination="ySU-HN-A9F" id="NXC-hV-MLj"/>
                         <outlet property="readingTextField" destination="RmK-ap-ZRJ" id="PM2-uM-6CU"/>
                     </connections>

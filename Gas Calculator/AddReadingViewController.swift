@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class AddReadingViewController: UIViewController {
 
     @IBOutlet weak var readingTextField: UITextField!
     @IBOutlet weak var readingDatePicker: UIDatePicker!
-    @IBOutlet var providedReadingSwitch: UIView!
+    @IBOutlet weak var providedReadingSwitch: UISwitch!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,17 @@ class AddReadingViewController: UIViewController {
     }
     
     @IBAction func addButtontapped(sender: UIBarButtonItem) {
+        
+        let delegate:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        let context: NSManagedObjectContext = delegate.managedObjectContext!
+        let description:NSEntityDescription = NSEntityDescription.entityForName("ReadingItem", inManagedObjectContext: context)!
+        var item = ReadingItem(entity: description, insertIntoManagedObjectContext: context)
+        item.reading = (self.readingTextField.text as NSString).doubleValue
+        item.date = self.readingDatePicker.date
+        item.provided = self.providedReadingSwitch.on
+        
+        delegate.saveContext()
+        
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

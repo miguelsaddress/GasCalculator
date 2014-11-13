@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ReadingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,8 +23,7 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     //variables
-//    var readingsArray = [Int]()
-    var readingsArray = [9,5,5,5,5,5,5,5,5,5,5,5,5,5]
+    var readingsArray = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,18 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
             alertController.addAction(OKAction)
             self.presentViewController(alertController, animated: true, completion: nil)
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        //fill up array of readings
+        let request: NSFetchRequest = NSFetchRequest(entityName: "ReadingItem")
+        let sortByDate: NSSortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [sortByDate]
+        let context:NSManagedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
 
+        self.readingsArray = context.executeFetchRequest(request, error: nil)!
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,13 +78,17 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell
+
         if self.readingsArray.count == 0 {
-            cell = self.tableView.dequeueReusableCellWithIdentifier("noReadingsYet", forIndexPath: indexPath) as UITableViewCell
+            var cell = self.tableView.dequeueReusableCellWithIdentifier("noReadingsYet", forIndexPath: indexPath) as UITableViewCell
+            return cell
         } else {
-            cell = self.tableView.dequeueReusableCellWithIdentifier("readingsCell", forIndexPath: indexPath) as ReadingsCell
+            var theCell = self.tableView.dequeueReusableCellWithIdentifier("readingsCell", forIndexPath: indexPath) as ReadingsCell
+            var theItem = self.readingsArray[indexPath.row] as ReadingItem
+            theCell.dateOfReadingLabel.text = Date.toString(theItem.date)
+            theCell.consumeLabel.text = "\(theItem.reading)"
+            return theCell
         }
-        return cell
     }
     
 }
