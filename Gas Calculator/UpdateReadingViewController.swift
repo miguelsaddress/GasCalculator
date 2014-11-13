@@ -12,6 +12,7 @@ class UpdateReadingViewController: UIViewController {
 
     @IBOutlet weak var readingTextField: UITextField!
     @IBOutlet weak var readingDatePicker: UIDatePicker!
+    @IBOutlet weak var providedReadingSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()

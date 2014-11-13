@@ -204,12 +204,21 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="10" translatesAutoresizingMaskIntoConstraints="NO" id="ySU-HN-A9F">
-                                <rect key="frame" x="0.0" y="177" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="223" width="375" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="437496235.31673199">
                                     <!--2014-11-12 14:43:55 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="es"/>
                             </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8s-BD-tqU">
+                                <rect key="frame" x="301" y="169" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facilitada" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qj-Ay-WXd">
+                                <rect key="frame" x="20" y="174" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -227,6 +236,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="providedReadingSwitch" destination="cIs-hW-JNp" id="rxj-vD-stk"/>
                         <outlet property="readingDatePicker" destination="ySU-HN-A9F" id="NXC-hV-MLj"/>
                         <outlet property="readingTextField" destination="RmK-ap-ZRJ" id="PM2-uM-6CU"/>
                     </connections>
@@ -259,12 +269,21 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="09G-u9-xSY">
-                                <rect key="frame" x="0.0" y="175" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="223" width="375" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="437496616.158647">
                                     <!--2014-11-12 14:50:16 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="es"/>
                             </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lrj-MR-XuB">
+                                <rect key="frame" x="301" y="172" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facilitada" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D6-vy-xwe">
+                                <rect key="frame" x="20" y="177" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -282,6 +301,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="providedReadingSwitch" destination="lrj-MR-XuB" id="5TR-l0-xeT"/>
                         <outlet property="readingDatePicker" destination="09G-u9-xSY" id="PwE-IA-g6O"/>
                         <outlet property="readingTextField" destination="qyh-zb-5GK" id="J9f-JP-NDA"/>
                     </connections>

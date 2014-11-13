@@ -22,7 +22,8 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     //variables
-    var readingsArray = [Int]()
+//    var readingsArray = [Int]()
+    var readingsArray = [9,5,5,5,5,5,5,5,5,5,5,5,5,5]
     
     override func viewDidLoad() {
         super.viewDidLoad()

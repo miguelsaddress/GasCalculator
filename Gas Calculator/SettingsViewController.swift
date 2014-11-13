@@ -94,37 +94,37 @@ class SettingsViewController: UIViewController {
         if let aux = self.defaults.objectForKey("kwhPerm3") as? Double {
             self.kwhPerm3TextField.text = "\(aux)"
         } else {
-            self.kwhPerm3TextField.text = "\(Defaults.KWH_PER_M3)"
+            self.kwhPerm3TextField.text = "\(Defaults.KWH_PER_M3.rawValue)"
         }
         
         if let aux = self.defaults.objectForKey("priceKwh") as? Double {
             self.priceKwhTextField.text = "\(aux)"
         } else {
-            self.priceKwhTextField.text = "\(Defaults.PRICE_KWH)"
+            self.priceKwhTextField.text = "\(Defaults.PRICE_KWH.rawValue)"
         }
 
         if let aux = self.defaults.objectForKey("taxes") as? Double {
             self.taxesTextField.text = "\(aux)"
         } else {
-            self.taxesTextField.text = "\(Defaults.TAXES)"
+            self.taxesTextField.text = "\(Defaults.TAXES.rawValue)"
         }
 
         if let aux = self.defaults.objectForKey("fixDailyTerm") as? Double {
             self.fixDailyTermTextField.text = "\(aux)"
         } else {
-            self.fixDailyTermTextField.text = "\(Defaults.FIX_DAILY_TERM)"
+            self.fixDailyTermTextField.text = "\(Defaults.FIX_DAILY_TERM.rawValue)"
         }
         
         if let aux = self.defaults.objectForKey("meterRent") as? Double {
             self.meterRentTextField.text = "\(aux)"
         } else {
-            self.meterRentTextField.text = "\(Defaults.METER_RENT_PER_BILL)"
+            self.meterRentTextField.text = "\(Defaults.METER_RENT_PER_BILL.rawValue)"
         }
         
         if let aux = self.defaults.objectForKey("vat") as? Double {
             self.vatTextField.text = "\(aux)"
         } else {
-            self.vatTextField.text = "\(Defaults.VAT)"
+            self.vatTextField.text = "\(Defaults.VAT.rawValue)"
         }
 
     }
