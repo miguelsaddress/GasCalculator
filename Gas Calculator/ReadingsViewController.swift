@@ -45,6 +45,11 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         if let indexPath = self.tableView.indexPathForSelectedRow() {
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
+        
+        //set last reading
+        let last = self.fetchedResultsController.fetchedObjects?.first as ReadingItem
+        self.lastReadingLabel.text = Date.toString(last.date)
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
