@@ -42,6 +42,15 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "updateReadingSegue" {
+            let controller:UpdateReadingViewController = segue.destinationViewController as UpdateReadingViewController
+            let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow()!
+            controller.readingItem = self.fetchedResultsController.objectAtIndexPath(indexPath) as ReadingItem
+        }
+    }
+    
+    
     //UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections!.count
