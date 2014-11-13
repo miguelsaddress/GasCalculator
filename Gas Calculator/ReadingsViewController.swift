@@ -98,8 +98,6 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         if editingStyle == UITableViewCellEditingStyle.Delete {
 
             let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as ReadingItem
-            println("Deleting item: \(item) - [\(indexPath)]")
-
             let delegate: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
             let context: NSManagedObjectContext = delegate.managedObjectContext!
             context.deleteObject(item)
@@ -115,7 +113,6 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     //Helpers
-    
     func checkSettings() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let settingsSet: Bool? = defaults.objectForKey("settings_set") as Bool?
