@@ -45,11 +45,14 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         if let indexPath = self.tableView.indexPathForSelectedRow() {
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
-        
+
         //set last reading
         let last = self.fetchedResultsController.fetchedObjects?.first as ReadingItem
         self.lastReadingLabel.text = Date.toString(last.date)
-
+        
+        self.calculateAndSetCosumeFromLastProvidedReading()
+        self.calculateAndSetDaysFromLastProvidedReading()
+//        self.tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -108,6 +111,8 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     //NSFetchedResultsController delegate
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.reloadData()
+//        self.calculateAndSetCosumeFromLastProvidedReading()
+//        self.calculateAndSetDaysFromLastProvidedReading()
     }
 
     
@@ -130,7 +135,8 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     func getSortedByDateDescendingFetchRequest() -> NSFetchRequest {
         let request: NSFetchRequest = NSFetchRequest(entityName: "ReadingItem")
         let sortByDate: NSSortDescriptor = NSSortDescriptor(key: "date", ascending: false)
-        request.sortDescriptors = [sortByDate]
+        let sortByReading: NSSortDescriptor = NSSortDescriptor(key: "reading", ascending: false)
+        request.sortDescriptors = [sortByDate, sortByReading]
         return request
     }
 
@@ -145,6 +151,68 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         )
         return fetchResultsController
     }
+    
+    func calculateAndSetCosumeFromLastProvidedReading() {
+        //get last provided reading
+        var mostRecentReading = 0.0
+        var firstReading = 0.0
+        var lastProvidedReading = 0.0
+        
+        if let auxMostRecentReading = self.fetchedResultsController.fetchedObjects?.first as? ReadingItem {
+            mostRecentReading = auxMostRecentReading.reading as Double
+        }
+
+        if let auxFirstRecentReading = self.fetchedResultsController.fetchedObjects?.last as? ReadingItem {
+            firstReading = auxFirstRecentReading.reading as Double
+        }
+
+        if let auxLastProvidedReading = self.getLastProvidedReading() {
+            lastProvidedReading = auxLastProvidedReading.reading as Double
+        }
+
+        var consume = abs(mostRecentReading - lastProvidedReading)
+        if lastProvidedReading == 0.0 {
+            consume = abs(mostRecentReading - firstReading)
+        }
+        
+        self.m3ConsumedLabel.text = "\(consume)"
+    }
+    
+    func calculateAndSetDaysFromLastProvidedReading() {
+        //get last provided reading
+        var mostRecentReading = NSDate()
+        var firstReading = NSDate()
+        
+        if let auxMostRecentReading = self.fetchedResultsController.fetchedObjects?.first as? ReadingItem {
+            mostRecentReading = auxMostRecentReading.date
+        }
+        
+        if let auxFirstRecentReading = self.fetchedResultsController.fetchedObjects?.last as? ReadingItem {
+            firstReading = auxFirstRecentReading.date
+        }
+        
+        var lastProvidedReading = firstReading
+        
+        if let auxLastProvidedReading = self.getLastProvidedReading() {
+            lastProvidedReading = auxLastProvidedReading.date
+        }
+        
+        
+        var days = Date.daysBetween(fromDate: mostRecentReading, toDate: lastProvidedReading)
+        
+        self.daysBetweenReadingsLabel.text = "\(days)"
+        
+    }
 
     
+    func getLastProvidedReading() -> ReadingItem? {
+        var fetchRequest = self.getSortedByDateDescendingFetchRequest()
+        fetchRequest.fetchLimit = 1
+        var predicate:NSPredicate = NSPredicate(format: "provided = true", argumentArray: nil)
+        fetchRequest.predicate = predicate
+        let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+        let results = context.executeFetchRequest(fetchRequest, error: nil)
+        let item:ReadingItem? = results?.last as? ReadingItem
+        return item
+    }
 }

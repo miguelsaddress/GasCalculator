@@ -36,5 +36,13 @@ class Date {
     class func toStringUsingLocale(date: NSDate) -> String {
         return NSDateFormatter.localizedStringFromDate(date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.NoStyle)
     }
+    
+    class func daysBetween(fromDate date1:NSDate, toDate date2:NSDate) -> Int {
+        let unit:NSCalendarUnit = .DayCalendarUnit
+
+        let calendar = NSCalendar.currentCalendar()
+        let components: NSDateComponents = calendar.components(unit, fromDate: date1, toDate: date2, options: nil)
+        return abs(components.day)+1
+    }
 
 }
