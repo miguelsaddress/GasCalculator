@@ -252,14 +252,19 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         let costOfConsume = (self.m3ConsumeFromLastProvidedReading as Double)
                             * (defaults.objectForKey("kwhPerm3") as Double)
                             * (defaults.objectForKey("priceKwh") as Double)
-        println(costOfConsume)
-        let costOfTaxes = (self.m3ConsumeFromLastProvidedReading as Double)
-                          * (defaults.objectForKey("taxes") as Double)
+        //        println("Gasto consumo: \(costOfConsume)")
         
-        println(costOfTaxes)
+        
+        let costOfTaxes = (self.m3ConsumeFromLastProvidedReading as Double)
+                            * (defaults.objectForKey("kwhPerm3") as Double)
+                            * (defaults.objectForKey("taxes") as Double)
+        //        println("Impuesto hidrocarburos: \(costOfTaxes)")
+        
+        
         let costOfFixDailyTerm = Double(self.daysBetweenReadings)
                             * (defaults.objectForKey("fixDailyTerm") as Double)
-        println(costOfFixDailyTerm)
+        //        println("Coste del termino fijo: \(costOfFixDailyTerm)")
+        
         
         let totalWithoutVAT = costOfConsume + costOfTaxes + costOfFixDailyTerm
                             + (defaults.objectForKey("meterRent") as Double)
