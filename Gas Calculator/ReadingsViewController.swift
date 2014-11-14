@@ -24,6 +24,8 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     //variables
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
+    var m3ConsumeFromLastProvidedReading: Double = 0.0
+    var daysBetweenReadings:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +49,18 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
 
         //set last reading
-        let last = self.fetchedResultsController.fetchedObjects?.first as ReadingItem
-        self.lastReadingLabel.text = Date.toString(last.date)
+        let last = self.fetchedResultsController.fetchedObjects?.first as? ReadingItem
+        if let date = last?.date {
+            self.lastReadingLabel.text = Date.toString(date)
+        } else {
+            self.lastReadingLabel.text = "0.0"
+        }
+        
         
         self.calculateAndSetCosumeFromLastProvidedReading()
         self.calculateAndSetDaysFromLastProvidedReading()
 //        self.tableView.reloadData()
-        
+        self.calculateConsume()
         
     }
     
@@ -75,9 +82,6 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         return self.fetchedResultsController.sections![section].numberOfObjects
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        //
-//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
@@ -113,6 +117,8 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     //NSFetchedResultsController delegate
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.reloadData()
+        self.calculateConsume()
+
 //        self.calculateAndSetCosumeFromLastProvidedReading()
 //        self.calculateAndSetDaysFromLastProvidedReading()
     }
@@ -182,8 +188,8 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         if lastProvidedReading == 0.0 {
             consume = abs(mostRecentReading - firstReading)
         }
-        
-        self.m3ConsumedLabel.text = "\(consume)"
+        self.m3ConsumeFromLastProvidedReading = consume as Double
+        self.m3ConsumedLabel.text = String(format: "%.2f", consume)
     }
     
     func calculateAndSetDaysFromLastProvidedReading() {
@@ -212,7 +218,7 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         var days = Date.daysBetween(fromDate: mostRecentReading, toDate: lastProvidedReading)
-        
+        self.daysBetweenReadings = days
         self.daysBetweenReadingsLabel.text = "\(days)"
         
     }
@@ -239,5 +245,30 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         let results = context.executeFetchRequest(fetchRequest, error: nil)
         let item:ReadingItem? = results?.last as? ReadingItem
         return item
+    }
+    
+    func calculateConsume() {
+        let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let costOfConsume = (self.m3ConsumeFromLastProvidedReading as Double)
+                            * (defaults.objectForKey("kwhPerm3") as Double)
+                            * (defaults.objectForKey("priceKwh") as Double)
+        println(costOfConsume)
+        let costOfTaxes = (self.m3ConsumeFromLastProvidedReading as Double)
+                          * (defaults.objectForKey("taxes") as Double)
+        
+        println(costOfTaxes)
+        let costOfFixDailyTerm = Double(self.daysBetweenReadings)
+                            * (defaults.objectForKey("fixDailyTerm") as Double)
+        println(costOfFixDailyTerm)
+        
+        let totalWithoutVAT = costOfConsume + costOfTaxes + costOfFixDailyTerm
+                            + (defaults.objectForKey("meterRent") as Double)
+        self.totalWithoutVATLabel.text = String(format: "%.2f", totalWithoutVAT)
+        
+        let vat = totalWithoutVAT * (defaults.objectForKey("vat") as Double ) / 100.0
+        let totalWithVAT = totalWithoutVAT + vat
+        
+        self.totalWithVATLabel.text = String(format: "%.2f", totalWithVAT)
+        
     }
 }
