@@ -53,6 +53,8 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.calculateAndSetCosumeFromLastProvidedReading()
         self.calculateAndSetDaysFromLastProvidedReading()
 //        self.tableView.reloadData()
+        
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -73,9 +75,9 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         return self.fetchedResultsController.sections![section].numberOfObjects
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
-    }
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        //
+//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
@@ -165,10 +167,16 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         if let auxFirstRecentReading = self.fetchedResultsController.fetchedObjects?.last as? ReadingItem {
             firstReading = auxFirstRecentReading.reading as Double
         }
-
-        if let auxLastProvidedReading = self.getLastProvidedReading() {
+        
+        if var auxLastProvidedReading = self.getLastProvidedReading() {
+            if auxLastProvidedReading.provided as Bool {
+                if let auxPreviousLastProvidedReading = self.getPreviousLastProvidedReading() {
+                    auxLastProvidedReading = auxPreviousLastProvidedReading
+                }
+            }
             lastProvidedReading = auxLastProvidedReading.reading as Double
         }
+
 
         var consume = abs(mostRecentReading - lastProvidedReading)
         if lastProvidedReading == 0.0 {
@@ -193,7 +201,12 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         var lastProvidedReading = firstReading
         
-        if let auxLastProvidedReading = self.getLastProvidedReading() {
+        if var auxLastProvidedReading = self.getLastProvidedReading() {
+            if auxLastProvidedReading.provided as Bool {
+                if let auxPreviousLastProvidedReading = self.getPreviousLastProvidedReading() {
+                    auxLastProvidedReading = auxPreviousLastProvidedReading
+                }
+            }
             lastProvidedReading = auxLastProvidedReading.date
         }
         
@@ -208,6 +221,18 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     func getLastProvidedReading() -> ReadingItem? {
         var fetchRequest = self.getSortedByDateDescendingFetchRequest()
         fetchRequest.fetchLimit = 1
+        var predicate:NSPredicate = NSPredicate(format: "provided = true", argumentArray: nil)
+        fetchRequest.predicate = predicate
+        let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+        let results = context.executeFetchRequest(fetchRequest, error: nil)
+        let item:ReadingItem? = results?.last as? ReadingItem
+        return item
+    }
+    
+    func getPreviousLastProvidedReading() -> ReadingItem? {
+        var fetchRequest = self.getSortedByDateDescendingFetchRequest()
+        fetchRequest.fetchLimit = 1
+        fetchRequest.fetchOffset = 1
         var predicate:NSPredicate = NSPredicate(format: "provided = true", argumentArray: nil)
         fetchRequest.predicate = predicate
         let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!

@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     //textfields
     
     enum Defaults:Double {
-        case KWH_PER_M3 = 10643.0
+        case KWH_PER_M3 = 10.643
         case PRICE_KWH = 0.057273
         case TAXES = 0.00234
         case FIX_DAILY_TERM = 0.144

@@ -93,7 +93,7 @@
 		493758C81A139DDB00DEBC5C = {
 			isa = PBXGroup;
 			children = (
-				493758D31A139DDC00DEBC5C /* Gas Calculator */,
+				493758D31A139DDC00DEBC5C /* Gas_Calculator */,
 				493758EC1A139DDC00DEBC5C /* Gas CalculatorTests */,
 				493758D21A139DDC00DEBC5C /* Products */,
 			);
@@ -108,7 +108,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		493758D31A139DDC00DEBC5C /* Gas Calculator */ = {
+		493758D31A139DDC00DEBC5C /* Gas_Calculator */ = {
 			isa = PBXGroup;
 			children = (
 				490BDBFE1A13D24A0093E567 /* Model */,
@@ -124,6 +124,7 @@
 				493758E21A139DDC00DEBC5C /* LaunchScreen.xib */,
 				493758D41A139DDC00DEBC5C /* Supporting Files */,
 			);
+			name = Gas_Calculator;
 			path = "Gas Calculator";
 			sourceTree = "<group>";
 		};
