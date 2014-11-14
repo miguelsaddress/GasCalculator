@@ -176,7 +176,7 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if var auxLastProvidedReading = self.getLastProvidedReading() {
             if auxLastProvidedReading.provided as Bool {
-                if let auxPreviousLastProvidedReading = self.getPreviousLastProvidedReading() {
+                if let auxPreviousLastProvidedReading = self.getLastProvidedReading(penultimate: true) {
                     auxLastProvidedReading = auxPreviousLastProvidedReading
                 }
             }
@@ -209,7 +209,7 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         if var auxLastProvidedReading = self.getLastProvidedReading() {
             if auxLastProvidedReading.provided as Bool {
-                if let auxPreviousLastProvidedReading = self.getPreviousLastProvidedReading() {
+                if let auxPreviousLastProvidedReading = self.getLastProvidedReading(penultimate: true) {
                     auxLastProvidedReading = auxPreviousLastProvidedReading
                 }
             }
@@ -224,9 +224,10 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     
-    func getLastProvidedReading() -> ReadingItem? {
+    func getLastProvidedReading(penultimate:Bool = false) -> ReadingItem? {
         var fetchRequest = self.getSortedByDateDescendingFetchRequest()
         fetchRequest.fetchLimit = 1
+        if penultimate { fetchRequest.fetchOffset = 1 }
         var predicate:NSPredicate = NSPredicate(format: "provided = true", argumentArray: nil)
         fetchRequest.predicate = predicate
         let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
@@ -235,17 +236,6 @@ class ReadingsViewController: UIViewController, UITableViewDelegate, UITableView
         return item
     }
     
-    func getPreviousLastProvidedReading() -> ReadingItem? {
-        var fetchRequest = self.getSortedByDateDescendingFetchRequest()
-        fetchRequest.fetchLimit = 1
-        fetchRequest.fetchOffset = 1
-        var predicate:NSPredicate = NSPredicate(format: "provided = true", argumentArray: nil)
-        fetchRequest.predicate = predicate
-        let context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
-        let results = context.executeFetchRequest(fetchRequest, error: nil)
-        let item:ReadingItem? = results?.last as? ReadingItem
-        return item
-    }
     
     func calculateConsume() {
         let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
